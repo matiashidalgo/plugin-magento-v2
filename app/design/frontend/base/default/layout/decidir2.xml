@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <checkout_onepage_index>
+        <reference name="head">
+            <!--<action method="addItem"><type>external_js</type><name>https://live.decidir.com/static/v1/decidir.js</name><params/></action>-->
+            <block type="core/text" name="your_external_file">
+                <action method="setText"><text><![CDATA[<script src="https://live.decidir.com/static/v1/decidir.js"></script>]]></text></action>
+            </block>
+        </reference>
+    </checkout_onepage_index>
+</layout>

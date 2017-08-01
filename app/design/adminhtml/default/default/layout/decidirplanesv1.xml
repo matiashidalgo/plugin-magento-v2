@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <adminhtml_banco_index>
+	<reference name="content">
+	  <block type="decidirplanesv1/adminhtml_banco" name="banco" />
+	</reference>
+  </adminhtml_banco_index>
+  <adminhtml_tarjeta_index>
+	<reference name="content">
+	  <block type="decidirplanesv1/adminhtml_tarjeta" name="tarjeta" />
+	</reference>
+</adminhtml_tarjeta_index>
+  <adminhtml_plan_index>
+	<reference name="content">
+	  <block type="decidirplanesv1/adminhtml_plan" name="plan" />
+	</reference>
+  </adminhtml_plan_index>
+  <adminhtml_interes_index>
+	<reference name="content">
+	  <block type="decidirplanesv1/adminhtml_interes" name="interes" />
+	</reference>
+</adminhtml_interes_index>
+
+</layout>

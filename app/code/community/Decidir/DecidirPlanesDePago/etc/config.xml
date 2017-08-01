@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Decidir_DecidirPlanesDePago>
+            <version>1.0.0</version>
+        </Decidir_DecidirPlanesDePago>
+    </modules>
+    <global>
+        <helpers>
+            <decidirplanesv1>
+                <class>Decidir_DecidirPlanesDePago_Helper</class>
+            </decidirplanesv1>
+            <descuentopromocional>
+                <class>Decidir_DecidirPlanesDePago_Helper</class>
+            </descuentopromocional> 
+        </helpers>
+        <blocks>
+            <decidirplanesv1>
+                <class>Decidir_DecidirPlanesDePago_Block</class>
+            </decidirplanesv1>
+        </blocks>
+        <models>
+            <decidirplanesv1>
+                <class>Decidir_DecidirPlanesDePago_Model</class>
+                <resourceModel>decidirplanesv1_mysql4</resourceModel>
+            </decidirplanesv1>
+            <descuentopromocional>
+                <class>Decidir_DecidirPlanesDePago_Model</class>
+                <resourceModel>descuentopromocional_mysql4</resourceModel>
+            </descuentopromocional>
+            <decidirplanesv1_mysql4>
+                <class>Decidir_DecidirPlanesDePago_Model_Mysql4</class>
+                <entities>
+                    <plan>
+                        <table>decidir_plan</table>
+                    </plan>
+                    <banco>
+                        <table>decidir_banco</table>
+                    </banco>
+                    <tarjeta>
+                        <table>decidir_tarjeta</table>
+                    </tarjeta>
+                    <interes>
+                        <table>decidir_interes</table>
+                    </interes>
+                    <!--<cupon>
+                        <table>decidir_cupon</table>
+                    </cupon>-->
+                    <transaccion>
+                        <table>decidir_transaccion</table>
+                    </transaccion>
+
+                </entities>
+            </decidirplanesv1_mysql4>
+        </models>
+        <resources>
+            <decidirplanesv1_setup>
+                <setup>
+                    <module>Decidir_DecidirPlanesDePago</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </decidirplanesv1_setup>
+            <decidirplanesv1_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </decidirplanesv1_write>
+            <decidirplanesv1_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </decidirplanesv1_read>
+            <salesattribute1480608079_setup>
+                <setup>
+                    <module>Decidir_DecidirPlanesDePago</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </salesattribute1480608079_setup>
+            <salesattribute1480608079_write>
+                <connection>
+                  <use>core_write</use>
+                </connection>
+            </salesattribute1480608079_write>
+            <salesattribute1480608079_read>
+                <connection>
+                  <use>core_read</use>
+                </connection>
+            </salesattribute1480608079_read>
+        </resources>
+        <events>
+        <checkout_type_onepage_save_order_after> <!-- identifier of the event we want to catch -->
+            <observers>
+                <checkout_type_onepage_save_order_after_descuentopromocional_handler> <!-- identifier of the event handler -->
+                    <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+                    <class>descuentopromocional/newordertotalobserver</class> <!-- observers class alias -->
+                    <method>saveDescuentopromocionalTotal</method>  <!-- observer's method to be called -->
+                    <args></args> <!-- additional arguments passed to observer -->
+                </checkout_type_onepage_save_order_after_descuentopromocional_handler>
+            </observers>
+        </checkout_type_onepage_save_order_after>       
+        <checkout_type_multishipping_create_orders_single> <!-- identifier of the event we want to catch -->
+            <observers>     
+              <checkout_type_multishipping_create_orders_single_descuentopromocional_handler> <!-- identifier of the event handler -->
+                <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+                <class>descuentopromocional/newordertotalobserver</class> <!-- observers class alias -->
+                <method>saveDescuentopromocionalTotalForMultishipping</method>  <!-- observer's method to be called -->
+                <args></args> <!-- additional arguments passed to observer -->
+              </checkout_type_multishipping_create_orders_single_descuentopromocional_handler>      
+            </observers>
+        </checkout_type_multishipping_create_orders_single>
+    </events>   
+    <sales>
+        <quote>
+            <totals>                
+                <descuentopromocional_total>
+                    <class>descuentopromocional/quote_address_total_descuentopromocional</class>
+                    <after>subtotal,freeshipping,tax_subtotal,shipping</after>
+                    <before>grand_total</before>
+                </descuentopromocional_total> 
+            </totals>
+        </quote>
+            <order_invoice>
+                <totals>                
+                <descuentopromocional_total>
+                    <class>descuentopromocional/order_invoice_total_descuentopromocional</class>
+                    <after>subtotal,freeshipping,tax_subtotal,shipping</after>
+                    <before>grand_total</before>
+                </descuentopromocional_total> 
+                </totals>
+            </order_invoice>
+            <order_creditmemo>
+                <totals>                
+                <descuentopromocional_total>
+                    <class>descuentopromocional/order_creditmemo_total_descuentopromocional</class>
+                    <after>subtotal,freeshipping,tax_subtotal,shipping</after>
+                    <before>grand_total</before>
+                </descuentopromocional_total> 
+                </totals>
+            </order_creditmemo>
+        </sales>
+    </global>
+    <admin>
+        <routers>
+          <adminhtml>
+            <args>
+                <modules>
+                    <!-- <module>Decidir_DecidirPlanesDePago</module>
+                    <frontName>admin_decidirplanesv1</frontNameDecidir_DecidirPlanesDePago> -->
+                    <custom_module before="Mage_Adminhtml">Decidir_DecidirPlanesDePago_Adminhtml</custom_module>
+                </modules>
+            </args>
+          </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <decidirplanesv1 module="decidirplanesv1">
+                <title>Decidir</title>
+                <sort_order>100</sort_order>
+                <children>
+                    <interes module="decidirplanesv1">
+                      <title>ABM Coeficientes</title>
+                      <sort_order>40</sort_order>
+                      <action>adminhtml/interes</action>
+                    </interes>
+                    <plan module="decidirplanesv1">
+                        <title>ABM Planes de Pago</title>
+                        <sort_order>30</sort_order>
+                        <action>adminhtml/plan</action>
+                    </plan>
+                    <banco module="decidirplanesv1">
+                        <title>ABM Entidades Financieras</title>
+                        <sort_order>20</sort_order>
+                        <action>adminhtml/banco</action>
+                    </banco>
+                    <tarjeta module="decidirplanesv1">
+                        <title>ABM Medios de Pago</title>
+                        <sort_order>10</sort_order>
+                        <action>adminhtml/tarjeta</action>
+                    </tarjeta>
+                    <!-- <cupon module="decidirplanesv1">
+                        <title>ABM Cupones</title>
+                        <sort_order>40</sort_order>
+                        <action>admin_decidirplanesv1/adminhtml_cupon</action>
+                    </cupon>-->
+                </children>
+            </decidirplanesv1>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <decidirplanesv1 translate="title" module="decidirplanesv1">
+                            <title>Decidirplanesv1</title>
+                            <sort_order>1000</sort_order>
+                            <children>
+                                <plan translate="title">
+                                    <title>Manage Plan</title>
+                                    <sort_order>0</sort_order>
+                                </plan>
+                                <banco translate="title">
+                                    <title>Manage Banco</title>
+                                    <sort_order>10</sort_order>
+                                </banco>
+                                <tarjeta translate="title">
+                                    <title>Manage Tarjeta</title>
+                                    <sort_order>20</sort_order>
+                                </tarjeta>
+                                <interes translate="title">
+                                    <title>Manage Coeficientes</title>
+                                    <sort_order>20</sort_order>
+                                </interes>
+
+                                <cupon translate="title">
+                                    <title>Manage Cupon</title>
+                                    <sort_order>30</sort_order>
+                                </cupon>
+                            </children>
+                        </decidirplanesv1>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <decidirplanesv1>
+                    <file>decidirplanesv1.xml</file>
+                </decidirplanesv1>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

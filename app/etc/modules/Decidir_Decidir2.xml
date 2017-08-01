@@ -1,0 +1,10 @@
+<?xml version="1.0"?>    
+<config>
+     <modules>
+        <Decidir_Decidir2>
+            <active>true</active>
+            <codePool>community</codePool>
+            <version>1.0.0</version>
+        </Decidir_Decidir2>
+     </modules>
+</config>

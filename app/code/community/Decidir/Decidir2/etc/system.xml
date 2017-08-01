@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<sections>
+		<payment>
+			<groups>
+				<decidir2 translate="label comment" module="paygate">
+					<label>Decidir 2</label>
+					<front-end>text</front-end>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<vers translate="label">
+							<comment>Version del plugin</comment>
+							<label>Version: </label>
+							<frontend_type>label</frontend_type>
+							<frontend_model>decidir2/system_config_version_front</frontend_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</vers>
+
+						<active translate="label">
+							<comment>Activa y desactiva el módulo de pago</comment>
+							<label>Enabled</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+
+						<cs_verticales translate="label">
+							<label>Segmento del Comercio</label>
+							<frontend_type>select</frontend_type>
+							<source_model>decidir2/system_config_source_csverticales
+							</source_model>
+							<comment>La elección del segmento determina los tipos de datos a enviar</comment>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cs_verticales>
+
+						<modo_test_prod translate="label">
+							<comment>Debe ser cofigurado en CONFIGURACION - AMBIENTE DEVELOPERS / PRODUCCION</comment>
+							<label>Ambiente Developers o Producción</label>
+							<frontend_type>select</frontend_type>
+							<source_model>decidir2/system_config_source_testproduccion</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</modo_test_prod>
+
+						<cybersource_active translate="label">
+							<comment>Activa y desactiva la integración con Cybersource</comment>
+							<label>Integración con Cybersource</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cybersource_active>
+
+						<developers_public_api_key>
+							<label>Public API Key (developers)</label>
+							<comment>API Key publica brindada por Decidir</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</developers_public_api_key>
+
+						<developers_private_api_key>
+							<comment>API Key privada brindada por Decidir</comment>
+							<label>Private API Key (developers)</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</developers_private_api_key>
+
+						<public_api_key>
+							<label>Public API Key</label>
+							<comment>API Key publica brindada por Decidir</comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</public_api_key>
+
+						<private_api_key>
+							<comment>API Key privada brindada por Decidir</comment>
+							<label>Private API Key</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</private_api_key>
+
+						<cs_deadline translate="label">
+							<label>Dead Line</label>
+							<frontend_type>text</frontend_type>
+							<comment><![CDATA[días máximos para la entrega]]></comment>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cs_deadline>
+
+						<decidir_avanzada>
+							<label>CONFIGURACION - ESTADOS DEL PEDIDO</label>
+							<frontend_type>label</frontend_type>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</decidir_avanzada>
+
+							<order_status translate="label">
+								<label>Estado del Pedido cuando la transacción esta "en proceso"
+								</label>
+								<comment>Para pagos con tarjetas de crédito mientras espera respuesta del gateway</comment>
+								<frontend_type>select</frontend_type>
+								<source_model>decidir2/system_config_source_pendingstatuses
+								</source_model>
+								<sort_order>12</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+							</order_status>
+
+							<order_aprov translate="label">
+								<label>Estado del Pedido cuando la transacción fue Aprobada por el medio de pago
+								</label>
+								<comment>Estado final de la informado por el medio de pago</comment>
+								<frontend_type>select</frontend_type>
+								<source_model>decidir2/system_config_source_processingstatuses
+								</source_model>
+								<sort_order>13</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+							</order_aprov>
+
+							<estado_denegada>
+								<label>Estado del pedido cuando la transacción fue Rechazada por el medio de pago
+								</label>
+								<comment>Cuando por cualquier motivo la transacción fue denegada</comment>
+								<frontend_type>select</frontend_type>
+								<source_model>adminhtml/system_config_source_order_status
+								</source_model>
+								<sort_order>14</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>1</show_in_store>
+							</estado_denegada>
+					</fields>
+				</decidir2>
+			</groups>
+		</payment>
+	</sections>
+</config>
+

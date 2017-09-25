@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Decidir_DecidirPlanesDePago>
-            <version>1.0.0</version>
+            <version>1.0.2</version>
         </Decidir_DecidirPlanesDePago>
     </modules>
     <global>
@@ -151,7 +151,7 @@
                 <modules>
                     <!-- <module>Decidir_DecidirPlanesDePago</module>
                     <frontName>admin_decidirplanesv1</frontNameDecidir_DecidirPlanesDePago> -->
-                    <custom_module before="Mage_Adminhtml">Decidir_DecidirPlanesDePago_Adminhtml</custom_module>
+                    <decidir_module before="Mage_Adminhtml">Decidir_DecidirPlanesDePago_Adminhtml</decidir_module>
                 </modules>
             </args>
           </adminhtml>

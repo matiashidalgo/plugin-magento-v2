@@ -2,7 +2,7 @@
 <config>
   <modules>
     <Decidir_Decidir2>
-      <version>1.0.0</version>
+      <version>1.0.2</version>
     </Decidir_Decidir2>
   </modules>
   <global>
@@ -141,7 +141,7 @@
 		<adminhtml>
 			<args>
 				<modules>
-					<custom_module before="Mage_Adminhtml">Decidir_Decidir2_Adminhtml</custom_module>
+					<decidir_module before="Mage_Adminhtml">Decidir_Decidir2_Adminhtml</decidir_module>
 				</modules>
 			</args>
 		</adminhtml>

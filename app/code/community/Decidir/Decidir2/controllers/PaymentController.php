@@ -243,6 +243,8 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
         $marcaId = $this->getRequest()->get('marcaId');
         $bancoId = $this->getRequest()->get('bancoId');
 
+        $this->_resetCostoFinanciero(Mage::getSingleton('checkout/session')->getQuoteId());
+
         if ($bancoId != "otro") {
             echo json_encode($this->_getCuotas($marcaId, $bancoId));
         } else {
@@ -253,6 +255,8 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
     public function getCuotasTokenAction() {
         $token = $this->getRequest()->get('token');
 
+        $this->_resetCostoFinanciero(Mage::getSingleton('checkout/session')->getQuoteId());
+
         try {
             $tokenModel =new Decidir_Decidir2_Model_Decidirtoken();
             $tokenModel->load($token, "token");
@@ -261,6 +265,11 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
             $bancoId = $tokenModel->getBancoId();
 
             $cuotas = $this->_getCuotas($marcaId, $bancoId);
+
+            if (count($cuotas) < 1) {
+                $cuotas = $this->_getCuotasOtros($marcaId);
+            }
+
         } catch (Exception $e) {
             Mage::logException($e);
         }
@@ -391,6 +400,8 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
 
     protected function _setCostoFinanciero($quote, $plan_info, $marcaId) {
 
+        $this->_resetCostoFinanciero($quote);
+
         Mage::log("_setCostoFinanciero");
         Mage::log("_setCostoFinanciero Quote: " . $quote);
         Mage::log("_setCostoFinanciero Plan Info: " . $plan_info[0] . "-" . $plan_info[1]);
@@ -431,6 +442,7 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
 
         Mage::log("coeficiente interes: $coeficiente_cf");
         Mage::log("coeficiente de descuento: $porcentaje_descuento");
+        Mage::log("Total = $total");
         Mage::log("Total + interes = $total_con_cf");
         Mage::log("interes: $cf - descuento: $descuento");
 
@@ -472,6 +484,9 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
             foreach ($collection as $t) {
                 $tokenObject = array();
                 $numeroCuota = intval($t["cuotas"]);
+
+                Mage::log("_getCuotasOtros coeficiente: " . $t["coeficiente"]);
+                Mage::log("_getCuotasOtros Cuota: " . $numeroCuota);
 
                 $valor_cuota = $this->_getValorCuota($this->getRequest()->get('quote'), 0, $numeroCuota, $t["coeficiente"]);
                 $valor_total = $valor_cuota * $numeroCuota;
@@ -551,5 +566,20 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
         $response["fraud_detection"] = $paymentResponse->getFraudDetection();
 
         return $response;
+    }
+
+    protected function _resetCostoFinanciero($quote) {
+        $tableName = $this->_getTableName("sales_flat_quote_address");
+        $resource = Mage::getSingleton('core/resource');
+
+        Mage::log("Quote: ".$quote);
+
+        $writeconnection = $resource->getConnection('core_write');
+        $writeconnection->query("UPDATE $tableName SET costofinanciero_total=0 WHERE address_type='shipping' and quote_id=$quote;");
+        $writeconnection->query("UPDATE $tableName SET costofinanciero_total=0 WHERE address_type='billing' and quote_id=$quote;");
+        $writeconnection->query("UPDATE $tableName SET descuentopromocional_total=0 WHERE address_type='shipping' and quote_id=$quote;");
+        $writeconnection->query("UPDATE $tableName SET descuentopromocional_total=0 WHERE address_type='billing' and quote_id=$quote;");
+
+        Mage::getModel('sales/quote')->load($quote)->collectTotals()->save();
     }
 }

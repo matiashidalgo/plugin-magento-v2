@@ -6,6 +6,8 @@
             <block type="core/text" name="your_external_file">
                 <action method="setText"><text><![CDATA[<script src="https://live.decidir.com/static/v1/decidir.js"></script>]]></text></action>
             </block>
+
+            <action method="addItem"><type>skin_css</type><name>css/form.css</name></action>
         </reference>
     </checkout_onepage_index>
 </layout>

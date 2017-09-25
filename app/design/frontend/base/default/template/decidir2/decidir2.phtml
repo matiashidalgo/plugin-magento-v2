@@ -15,7 +15,7 @@ $_code = $this->getMethodCode(); ?>
                     <label for="select_tokens" class="required"><em>*</em>Tokens</label>
 
                     <div class="input-box">
-                        <select id="select_tokens" name="select_tokens" title="Tokens" class="required-entry">
+                        <select id="select_tokens" name="select_tokens" title="Tokens" class="required-entry dec-form-select">
                             <option selected disabled hidden style="display: none" value="">Seleccione una tarjeta</option>
                         </select>
                     </div>
@@ -24,20 +24,20 @@ $_code = $this->getMethodCode(); ?>
                 <li>
                     <label for="token" class="required"><em>*</em>Tarjeta tokenizada:</label>
                     <div class="input-box">
-                        <input id="token" type="text" placeholder="xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx" value=""/>
+                        <input id="token" type="text" placeholder="xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx" value="" class="dec-form-text" />
                     </div>
                 </li>
                 <li>
                     <label for="security_code" class="required"><em>*</em>Codigo de seguridad:</label>
                     <div class="input-box">
-                        <input id="token_security" type="text" placeholder="XXX" />
+                        <input id="token_security" type="text" placeholder="XXX" class="dec-form-text" />
                     </div>
                 </li>
 
                 <li>
                     <label for="select_cuotas" class="required"><em>*</em>Planes</label>
                     <div class="input-box">
-                        <select id="select_cuotas" name="select_cuotas" title="Cuotas" class="required-entry">
+                        <select id="select_cuotas" name="select_cuotas" title="Cuotas" class="required-entry dec-form-select">
                             <option selected disabled hidden style="display: none" value="">Seleccione un plan</option>
                         </select>
                     </div>
@@ -57,7 +57,7 @@ $_code = $this->getMethodCode(); ?>
                 <li>
                     <label for="select_card_marcas" class="required"><em>*</em>Marcas</label>
                     <div class="input-box">
-                        <select id="select_card_marcas" name="select_card_marcas" title="Marca" class="required-entry">
+                        <select id="select_card_marcas" name="select_card_marcas" title="Marca" class="required-entry dec-form-select">
                             <option selected disabled hidden style="display: none" value="">Seleccione una marca</option>
                         </select>
                     </div>
@@ -66,7 +66,7 @@ $_code = $this->getMethodCode(); ?>
                 <li>
                     <label for="select_card_bancos" class="required"><em>*</em>Bancos</label>
                     <div class="input-box">
-                        <select id="select_card_bancos" name="select_card_bancos" title="Banco" class="required-entry">
+                        <select id="select_card_bancos" name="select_card_bancos" title="Banco" class="required-entry dec-form-select">
                             <option selected disabled hidden style="display: none" value="">Seleccione un banco</option>
                         </select>
                     </div>
@@ -75,7 +75,7 @@ $_code = $this->getMethodCode(); ?>
                 <li>
                     <label for="select_card_cuotas" class="required"><em>*</em>Planes</label>
                     <div class="input-box">
-                        <select id="select_card_cuotas" name="select_card_cuotas" title="Cuotas" class="required-entry">
+                        <select id="select_card_cuotas" name="select_card_cuotas" title="Cuotas" class="required-entry dec-form-select">
                             <option selected disabled hidden style="display: none" value="">Seleccione un plan</option>
                         </select>
                     </div>
@@ -84,33 +84,43 @@ $_code = $this->getMethodCode(); ?>
                 <li>
                     <label for="card_number" class="required"><em>*</em>Numero de tarjeta:</label>
                     <div class="input-box">
-                        <input id="card_number" type="text" data-decidir="card_number" placeholder="XXXXXXXXXXXXXXXX" class="required-entry" />
+                        <input id="card_number" type="text" data-decidir="card_number" placeholder="XXXXXXXXXXXXXXXX" class="required-entry dec-form-text" />
                     </div>
                 </li>
                 <li>
                     <label for="card_expiration_month" class="required"><em>*</em>Fecha de vencimiento y código de seguridad:</label>
                     <div class="input-box">
                         <div class="v-fix">
-                            <input id="card_expiration_month" type="text"  data-decidir="card_expiration_month" placeholder="MM" class="required-entry" style="width: 50px;float: left;" maxlength="2" />
+                            <select id="card_expiration_month" data-decidir="card_expiration_month" class="required-entry dec-form-select">
+                                <option selected disabled hidden style="display: none" value="">Mes</option>
+                                <?php foreach (Mage::helper('decidir2/data')->getMonths() as $k => $v): ?>
+                                    <option value="<?php echo $k ?>" > <?php echo $v ?> </option>
+                                <?php endforeach ?>
+                            </select>
                         </div>
                         <div class="v-fix">
-                            <input id="card_expiration_year" type="text"  data-decidir="card_expiration_year" placeholder="AA" class="required-entry" style="width: 50px;float: left;" maxlength="2" />
+                            <select id="card_expiration_year" data-decidir="card_expiration_year" class="required-entry dec-form-select">
+                                <option selected disabled hidden style="display: none" value="">Año</option>
+                                <?php foreach (Mage::helper('decidir2/data')->getYears() as $k => $v): ?>
+                                    <option value="<?php echo $k ? $k : '' ?>" > <?php echo $v ?> </option>
+                                <?php endforeach ?>
+                            </select>
                         </div>
                         <div class="v-fix">
-                            <input id="security_code" type="text"  data-decidir="security_code" placeholder="XXX" class="required-entry" style="width: 80px;float: left;" maxlength="4" />
+                            <input id="security_code" type="text"  data-decidir="security_code" placeholder="XXX" class="required-entry dec-security-code" maxlength="4" />
                         </div>
                     </div>
                 </li>
                 <li>
                     <label for="card_holder_name" class="required"><em>*</em>Nombre del titular:</label>
                     <div class="input-box">
-                        <input id="card_holder_name" type="text" data-decidir="card_holder_name" placeholder="TITULAR" class="required-entry" />
+                        <input id="card_holder_name" type="text" data-decidir="card_holder_name" placeholder="TITULAR" class="required-entry dec-form-text" />
                     </div>
                 </li>
                 <li>
                     <label for="card_holder_doc_type" class="required"><em>*</em>Tipo de documento:</label>
                     <div class="input-box">
-                        <select id="card_holder_doc_type" data-decidir="card_holder_doc_type">
+                        <select id="card_holder_doc_type" data-decidir="card_holder_doc_type" class="dec-form-select">
                             <option value="dni">DNI</option>
                         </select>
                     </div>
@@ -118,7 +128,7 @@ $_code = $this->getMethodCode(); ?>
                 <li>
                     <label for="card_holder_doc_number" class="required"><em>*</em>Numero de documento:</label>
                     <div class="input-box">
-                        <input id="card_holder_doc_number" type="text" data-decidir="card_holder_doc_number" placeholder="XXXXXXXXXX" class="required-entry" />
+                        <input id="card_holder_doc_number" type="text" data-decidir="card_holder_doc_number" placeholder="XXXXXXXXXX" class="required-entry dec-form-text" />
                     </div>
                 </li>
             </ul>

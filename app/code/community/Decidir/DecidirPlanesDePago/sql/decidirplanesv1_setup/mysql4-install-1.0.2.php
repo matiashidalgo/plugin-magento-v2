@@ -53,14 +53,39 @@ INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (1, "
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (8, "Diners", 1, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (15, "MasterCard", 1, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (22, "Naranja", 1, 0);
-INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (23, "Shopping", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (23, "Tarjeta Shopping", 1, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (25, "PagoFacil", 0, 0);
-INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (26, "Rapipago", 0, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (26, "RapiPago", 0, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (27, "Cabal", 1, 0);
-INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (30, "Argencard", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (29, "Italcred", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (30, "ArgenCard", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (31, "Visa Débito", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (34, "CoopePlus", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (37, "Nexo", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (38, "Credimás", 1, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (39, "Nevada", 1, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (42, "Nativa", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (43, "Tarjeta Cencosud", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (44, "Tarjeta Carrefour / Cetelem", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (45, "Tarjeta PymeNacion", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (48, "Caja de Pagos", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (50, "BBPS", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (51, "Cobro Express", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (52, "Qida", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (54, "Grupar", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (55, "Patagonia 365", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (56, "Tarjeta Club Día", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (59, "Tuya", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (60, "Distribution", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (61, "Tarjeta La Anónima", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (62, "CrediGuia", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (64, "Tarjeta SOL", 1, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (65, "Amex", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (66, "MasterCard Debit", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (67, "Cabal Débito", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (99, "Maestro", 1, 0);
+INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (103, "Favacard", 1, 0);
+
 
 
 CREATE TABLE IF NOT EXISTS {$prefix}decidir_plan (

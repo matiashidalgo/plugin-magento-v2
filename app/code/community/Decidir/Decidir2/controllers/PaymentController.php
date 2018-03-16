@@ -71,7 +71,9 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
             $vertical = Mage::getStoreConfig('payment/decidir2/cs_verticales');
             if (Mage::getStoreConfig('payment/decidir2/cybersource_active')) {
                 $cybersource = Decidir_Decidir2_Model_Cybersource_Factorycybersource::get_cybersource_extractor($vertical, $order, $customer)->getDataCS();
-                Mage::log(print_r($cybersource,true));
+
+                Mage::log("Datos Cybersource: ".json_encode($cybersource->getData()));
+
                 $decidir_connector->payment()->setCybersource($cybersource->getData());
             }
 
@@ -311,7 +313,12 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
         );
 
         if (!$order->getCustomerIsGuest()){
-            $data["user_id"] = $this->_getCustomerIdDecidir($order->getCustomerId());
+						$customerData = array(
+                "id" => $this->_getCustomerIdDecidir($order->getCustomerId()),
+                "email" => $order->getCustomerEmail()
+            );
+ 						
+            $data['customer'] = $customerData; 
         }
 
         return $data;

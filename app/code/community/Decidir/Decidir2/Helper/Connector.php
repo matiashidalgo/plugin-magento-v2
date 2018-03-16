@@ -7,7 +7,7 @@ class Decidir_Decidir2_Helper_Connector extends Mage_Core_Helper_Abstract
         $ambient = null;
         $keys_data = null;
 
-        if ($ambient == "produccion"){
+        if ($modo == "produccion"){
             $ambient = "prod";
             $keys_data = array('public_key' => Mage::getStoreConfig('payment/decidir2/public_api_key'),
                 'private_key' => Mage::getStoreConfig('payment/decidir2/private_api_key'));

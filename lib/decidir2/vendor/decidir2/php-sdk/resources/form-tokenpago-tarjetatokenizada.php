@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<script src="https://live.decidir.com/static/v1/decidir.js"></script>
+<script src="https://live.decidir.com/static/v2.2.2/decidir.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <meta charset="utf-8" />
 </head>

@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS {$prefix}decidir_banco (
 	PRIMARY KEY (banco_id)
 );
 
-INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Argencard", 0);
 INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Banco Ciudad", 0);
 INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Banco Comafi", 0);
 INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Banco de La Pampa", 0);
@@ -38,7 +37,7 @@ INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Nuevo Banco de Ent
 INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Nuevo Banco de Santa Fe", 0);
 INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Provencred", 0);
 INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Tarjeta Shopping", 0);
-
+INSERT INTO  {$prefix}decidir_banco (nombre, activo) VALUES ("Otros", 0);
 
 CREATE TABLE IF NOT EXISTS {$prefix}decidir_tarjeta (
 	tarjeta_id INT(11) NOT NULL AUTO_INCREMENT,
@@ -85,7 +84,6 @@ INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (66, 
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (67, "Cabal Débito", 1, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (99, "Maestro", 1, 0);
 INSERT INTO  {$prefix}decidir_tarjeta (clave, nombre, tipo, activo) VALUES (103, "Favacard", 1, 0);
-
 
 
 CREATE TABLE IF NOT EXISTS {$prefix}decidir_plan (

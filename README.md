@@ -19,7 +19,7 @@ Plug in para la integración con gateway de pago <strong>Decidir</strong>
 <a name="consideracionesgenerales"></a>
 ## Consideraciones Generales
 El plug in de pagos de <strong>Decidir</strong>, provee a las tiendas Magento de un nuevo m&eacute;todo de pago, integrando la tienda al gateway de pago.
-La versión de este plug in esta testeada en PHP 5.3 en adelante y MAGENTO 1.7 a 1.9
+La versión de este plug in esta testeada en PHP 5.3 en adelante y MAGENTO 1.7 a 1.9. Es sumamente importante que se compare con las necesidades de negocio para evaluar la utilización del mismo o recurrir a una integración vía SDK.
 
 <a name="instalacion"></a>
 ## Instalación

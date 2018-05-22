@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Decidir_DecidirPlanesDePago>
-            <version>1.0.4</version>
+            <version>1.0.5</version>
         </Decidir_DecidirPlanesDePago>
     </modules>
     <global>

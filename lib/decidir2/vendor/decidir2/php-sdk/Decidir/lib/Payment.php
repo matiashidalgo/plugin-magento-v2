@@ -29,8 +29,10 @@ class Payment{
                 }
 
 		$jsonData = new \Decidir\Payment\Data($data);
+
 		$RESTResponse = $this->serviceREST->post("payments", $jsonData->getData());
 		$ArrayResponse = $this->toArray($RESTResponse);
+		
 		return new \Decidir\Payment\PaymentResponse($ArrayResponse);
 	}
 
@@ -122,7 +124,7 @@ class Payment{
 	}
 
 	public function rmDecAmount($amount){
-		$formatedAmount = ($amount*100);	
+		$formatedAmount = intval($amount*100);	
 
 		return $formatedAmount;
 	}

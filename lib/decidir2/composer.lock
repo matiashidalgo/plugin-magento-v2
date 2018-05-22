@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1b1fc1fa981dd26b64ef7c9764747945",
+    "hash": "6cd8b57a75eeba071cf07d18f3faa89b",
     "content-hash": "bd1bc395675973935758a035d7b2595a",
     "packages": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/decidir/sdk-php-v2.git",
-                "reference": "bf97990ce73af41886da302c926a5c3d2a3c6ac1"
+                "reference": "a14a324996d731b6d0967628ea70c35c89a7e204"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/decidir/sdk-php-v2/zipball/bf97990ce73af41886da302c926a5c3d2a3c6ac1",
-                "reference": "bf97990ce73af41886da302c926a5c3d2a3c6ac1",
+                "url": "https://api.github.com/repos/decidir/sdk-php-v2/zipball/a14a324996d731b6d0967628ea70c35c89a7e204",
+                "reference": "a14a324996d731b6d0967628ea70c35c89a7e204",
                 "shasum": ""
             },
             "require": {
@@ -32,7 +32,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "SDK para Decidir",
-            "time": "2017-06-22 18:02:00"
+            "time": "2018-03-13 17:23:10"
         }
     ],
     "packages-dev": [],

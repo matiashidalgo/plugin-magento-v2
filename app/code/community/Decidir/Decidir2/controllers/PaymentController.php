@@ -560,7 +560,6 @@ class Decidir_Decidir2_PaymentController extends Mage_Core_Controller_Front_Acti
         $response["status"] = $paymentResponse->getStatus();
         $response["id"] = $paymentResponse->getId();
         $response["site_transaction_id"] = $paymentResponse->getSiteTransactionId();
-        $response["token"] = $paymentResponse->getToken();
         $response["payment_method_id"] = $paymentResponse->getPaymentMethodId();
         $response["bin"] = $paymentResponse->getBin();
         $response["amount"] = $paymentResponse->getAmount();

@@ -1,0 +1,61 @@
+{
+  "name": "decidir/plugin-magento-v2",
+  "type": "magento-module",
+  "description": " Módulo de integración de Decidir para Magento v1.7.x a v1.9.x",
+  "license": "proprietary",
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "extra": {
+    "map": [
+      [
+        "app/code/community/Decidir/Decidir2",
+        "app/code/community/Decidir/Decidir2"
+      ],
+      [
+        "app/code/community/Decidir/DecidirPlanesDePago",
+        "app/code/community/Decidir/DecidirPlanesDePago"
+      ],
+      [
+        "app/design/adminhtml/default/default/layout/decidir2.xml",
+        "app/design/adminhtml/default/default/layout/decidir2.xml"
+      ],
+      [
+        "app/design/adminhtml/default/default/layout/decidirplanesv1.xml",
+        "app/design/adminhtml/default/default/layout/decidirplanesv1.xml"
+      ],
+      [
+        "app/design/adminhtml/default/default/template/decidir2",
+        "app/design/adminhtml/default/default/template/decidir2"
+      ],
+      [
+        "app/design/frontend/base/default/layout/decidir2.xml",
+        "app/design/frontend/base/default/layout/decidir2.xml"
+      ],
+      [
+        "app/design/frontend/base/default/template/decidir2",
+        "app/design/frontend/base/default/template/decidir2"
+      ],
+      [
+        "app/etc/modules/Decidir_Decidir2.xml",
+        "app/etc/modules/Decidir_Decidir2.xml"
+      ],
+      [
+        "app/etc/modules/Decidir_DecidirPlanesDePago.xml",
+        "app/etc/modules/Decidir_DecidirPlanesDePago.xml"
+      ],
+      [
+        "js/decidir2",
+        "js/decidir2"
+      ],
+      [
+        "lib/decidir2",
+        "lib/decidir2"
+      ],
+      [
+        "skin/frontend/base/default/css/form.css",
+        "skin/frontend/base/default/css/form.css"
+      ]
+    ]
+  }
+}
